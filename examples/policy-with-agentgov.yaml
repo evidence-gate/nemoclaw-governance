@@ -1,0 +1,66 @@
+# Example NemoClaw OpenShell Policy with agentgov
+#
+# Configures sandbox network policy to:
+# 1. Route all inference through agentgov proxy (budget enforcement)
+# 2. Allow GitHub API access (for agent tool use)
+# 3. Block all other outbound connections (deny-by-default)
+#
+# Install: openshell policy set policy-with-agentgov.yaml
+
+version: 1
+
+filesystem_policy:
+  include_workdir: true
+  read_only:
+    - /usr
+    - /lib
+    - /proc
+    - /app
+    - /etc
+    - /var/log
+  read_write:
+    - /sandbox
+    - /tmp
+    - /dev/null
+
+landlock:
+  compatibility: best_effort
+
+process:
+  run_as_user: sandbox
+  run_as_group: sandbox
+
+network_policies:
+  # agentgov proxy -- the ONLY inference egress point
+  agentgov_proxy:
+    endpoints:
+      - host: localhost
+        port: 8787
+        protocol: http
+        enforcement: enforce
+        rules:
+          - allow: { method: POST, path: "/v1/chat/completions" }
+          - allow: { method: POST, path: "/v1/messages" }
+          - allow: { method: GET, path: "/health" }
+
+  # GitHub API -- for agent tool use (read-only)
+  github:
+    endpoints:
+      - host: api.github.com
+        port: 443
+        protocol: https
+        enforcement: enforce
+        tls: terminate
+        rules:
+          - allow: { method: GET, path: "/**" }
+
+  # npm registry -- for package installs
+  npm_registry:
+    endpoints:
+      - host: registry.npmjs.org
+        port: 443
+        protocol: https
+        enforcement: enforce
+        tls: terminate
+        rules:
+          - allow: { method: GET, path: "/**" }

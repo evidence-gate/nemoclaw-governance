@@ -1,0 +1,87 @@
+# Example: NemoClaw Governance CI with evidence-gate-action
+#
+# Validates NemoClaw blueprint and policy before deployment.
+# Uses the nemoclaw-baseline preset (blueprint + policy + security + build).
+#
+# Prerequisites:
+#   - evidence-gate-action v1.1+ (with NemoClaw gate types)
+#   - NemoClaw config files in repo (blueprint.yaml, policy.yaml)
+
+name: NemoClaw Governance Gate
+
+on:
+  push:
+    paths:
+      - "nemoclaw/**"
+      - "policies/**"
+  pull_request:
+    paths:
+      - "nemoclaw/**"
+      - "policies/**"
+
+jobs:
+  validate-blueprint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Convert YAML to JSON for evidence-gate-action
+      - name: Prepare evidence
+        run: |
+          pip install pyyaml
+          python -c "
+          import yaml, json
+          with open('nemoclaw/blueprint.yaml') as f:
+              data = yaml.safe_load(f)
+          with open('/tmp/blueprint.json', 'w') as f:
+              json.dump(data, f)
+          with open('policies/openclaw-sandbox.yaml') as f:
+              data = yaml.safe_load(f)
+          with open('/tmp/policy.json', 'w') as f:
+              json.dump(data, f)
+          "
+
+      # Validate blueprint structure
+      - name: Blueprint Gate
+        uses: evidence-gate/evidence-gate-action@v1
+        with:
+          gate_type: nemoclaw_blueprint
+          phase_id: deploy
+          evidence_files: /tmp/blueprint.json
+
+      # Validate policy security
+      - name: Policy Gate
+        uses: evidence-gate/evidence-gate-action@v1
+        with:
+          gate_type: nemoclaw_policy
+          phase_id: deploy
+          evidence_files: /tmp/policy.json
+
+  # Alternative: use the preset to run all gates at once
+  validate-preset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare evidence
+        run: |
+          pip install pyyaml
+          python -c "
+          import yaml, json
+          for src, dst in [
+              ('nemoclaw/blueprint.yaml', '/tmp/blueprint.json'),
+              ('policies/openclaw-sandbox.yaml', '/tmp/policy.json'),
+          ]:
+              with open(src) as f:
+                  data = yaml.safe_load(f)
+              with open(dst, 'w') as f:
+                  json.dump(data, f)
+          "
+
+      - name: NemoClaw Governance Gate
+        uses: evidence-gate/evidence-gate-action@v1
+        with:
+          gate_preset: nemoclaw-baseline
+          phase_id: deploy
+          evidence_files: /tmp/blueprint.json,/tmp/policy.json
+          sticky_comment: true

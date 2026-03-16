@@ -1,0 +1,44 @@
+# Example NemoClaw Blueprint with agentgov Governance
+#
+# This blueprint configures NemoClaw to route all inference through
+# an agentgov proxy, enabling budget enforcement and HITL approval.
+#
+# Usage:
+#   1. Start agentgov proxy:  docker compose -f docker/compose.yml up -d
+#   2. Deploy this blueprint: nemoclaw launch --profile agentgov
+#
+# Architecture:
+#   Agent (NemoClaw sandbox)
+#     → agentgov proxy (budget gate + HITL + audit)
+#       → LLM provider (OpenAI / Anthropic / Gemini)
+
+version: "0.1.0"
+min_openshell_version: "1.0.0"
+min_openclaw_version: "0.5.0"
+
+profiles:
+  # Default: direct NVIDIA Cloud (no governance)
+  default:
+    provider_type: nvidia
+    endpoint_url: https://integrate.api.nvidia.com
+    model: nvidia/llama-3.3-nemotron-super-49b-v1
+    credential_env: NVIDIA_API_KEY
+
+  # agentgov: budget-enforced inference via agentgov proxy
+  agentgov:
+    provider_type: openai-compatible
+    endpoint_url: http://localhost:8787/v1
+    model: gpt-4o
+    credential_env: OPENAI_API_KEY
+
+  # agentgov-cloud: production agentgov on Cloudflare Workers
+  agentgov-cloud:
+    provider_type: openai-compatible
+    endpoint_url: https://agentgov-proxy-production.your-subdomain.workers.dev/v1
+    model: gpt-4o
+    credential_env: OPENAI_API_KEY
+
+sandbox:
+  image: ghcr.io/nvidia/openshell-community/sandboxes/openclaw:latest
+  ports:
+    - 18789

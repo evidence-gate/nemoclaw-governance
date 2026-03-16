@@ -1,0 +1,8 @@
+{
+  "_comment": "NemoClaw inference profile for agentgov proxy. Use with: openshell provider create --type openai-compatible --config agentgov-inference-profile.json",
+  "name": "agentgov",
+  "type": "openai-compatible",
+  "endpoint_url": "http://localhost:8787/v1",
+  "model": "gpt-4o",
+  "credential_env": "OPENAI_API_KEY"
+}

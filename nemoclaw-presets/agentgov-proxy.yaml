@@ -1,0 +1,47 @@
+# agentgov Proxy -- NemoClaw Policy Preset
+#
+# Allows sandbox egress to an agentgov proxy for budget-enforced
+# LLM inference. Install with: nemoclaw policy-add agentgov-proxy.yaml
+#
+# Configuration:
+#   Replace AGENTGOV_HOST and AGENTGOV_PORT with your proxy address.
+#   Default: localhost:8787 (Docker Compose self-host)
+#
+# Architecture:
+#   Agent (sandbox) → agentgov proxy (budget gate) → LLM provider
+#
+# See: https://github.com/evidence-gate/agentgov
+
+preset:
+  name: agentgov-proxy
+  description: "agentgov governance proxy for budget-enforced LLM inference"
+
+network_policies:
+  agentgov_proxy:
+    endpoints:
+      - host: "localhost"
+        port: 8787
+        protocol: http
+        enforcement: enforce
+        rules:
+          # OpenAI-compatible chat completions
+          - allow: { method: POST, path: "/v1/chat/completions" }
+          # Anthropic messages passthrough
+          - allow: { method: POST, path: "/v1/messages" }
+          # Health check
+          - allow: { method: GET, path: "/health" }
+          # Budget status (read-only)
+          - allow: { method: GET, path: "/api/agents/**" }
+
+  agentgov_proxy_tls:
+    endpoints:
+      - host: "agentgov-proxy.example.com"
+        port: 443
+        protocol: https
+        enforcement: enforce
+        tls: terminate
+        rules:
+          - allow: { method: POST, path: "/v1/chat/completions" }
+          - allow: { method: POST, path: "/v1/messages" }
+          - allow: { method: GET, path: "/health" }
+          - allow: { method: GET, path: "/api/agents/**" }
