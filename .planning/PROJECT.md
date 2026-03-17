@@ -8,11 +8,31 @@ NVIDIA NemoClaw（AIエージェントサンドボックス）と evidence-gate 
 
 NemoClawはサンドボックス隔離に特化しているが、コスト制御が**完全に欠如**している。agentgovの予算強制（Hold/Settle）をNemoClawの推論層に統合し、evidence-gate-actionでブループリント/ポリシーのCI検証を追加することで、**インフラ隔離 + アプリケーションガバナンス + CI検証**の業界標準3層アーキテクチャを構築する。
 
+## Current Milestone: v2.0 evidence-gate.dev Full Renewal
+
+**Goal:** NemoClaw公式ドキュメント（docs.nvidia.com/nemoclaw）の詳細アーキテクチャ情報を反映し、evidence-gate.devサイト全体をリニューアル。Plugin+Blueprint構成、推論ルーティング3プロファイル、セキュリティ4層モデルなどの正確な技術情報を統合。EN+JA両対応。
+
+**Target features:**
+- NemoClaw公式docsベースのアーキテクチャ詳細反映
+- Ecosystemセクション刷新（Plugin+Blueprint構成、推論ルーティング図）
+- セキュリティモデル詳細（Landlock+seccomp+netns+推論制御）
+- NemoClaw統合クイックスタートガイド
+- ダイアグラム全面更新
+- EN/JA同期更新
+
 ## Requirements
+
+### Validated
+
+- ✓ evidence-gate-action NemoClaw gates (v1.0)
+- ✓ agentgov NemoClaw policy preset (v1.0)
+- ✓ evidence-gate.dev 初版作成 (v1.0)
+- ✓ 日本語対応（EN/JA言語切替、README.ja.md x3）(v1.0)
+- ✓ AI agent threat model messaging (v1.0)
 
 ### Active
 
-(Requirements definition follows)
+(Requirements definition follows — v2.0)
 
 ### Out of Scope
 
@@ -24,7 +44,8 @@ NemoClawはサンドボックス隔離に特化しているが、コスト制御
 
 ## Current State
 
-**New project:** 2026-03-17 initialized
+**v1.0 completed:** evidence-gate-action NemoClaw gates, agentgov policies, website, Japanese support
+**v2.0 started:** 2026-03-17
 **Related repos:**
 - https://github.com/evidence-gate/agentgov (v1.2, Apache 2.0)
 - https://github.com/evidence-gate/evidence-gate-action (v1.0.0, Apache 2.0)
