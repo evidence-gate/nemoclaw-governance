@@ -24,9 +24,9 @@
 
 ### Content
 
-- [ ] **CONT-01**: Heroセクションのコピーとコード例をNemoClaw統合を反映して更新する
-- [ ] **CONT-02**: Pricing表を最新の機能セットで更新する
-- [ ] **CONT-03**: SEO meta description, OGPタグ, 構造化データをNemoClaw統合情報で更新する
+- [x] **CONT-01**: Heroセクションのコピーとコード例をNemoClaw統合を反映して更新する
+- [x] **CONT-02**: Pricing表を最新の機能セットで更新する
+- [x] **CONT-03**: SEO meta description, OGPタグ, 構造化データをNemoClaw統合情報で更新する
 
 ### i18n
 
@@ -61,9 +61,9 @@
 | ECO-01 | Phase 7 | Complete |
 | ECO-02 | Phase 7 | Complete |
 | ECO-03 | Phase 7 | Complete |
-| CONT-01 | Phase 8 | Pending |
-| CONT-02 | Phase 8 | Pending |
-| CONT-03 | Phase 8 | Pending |
+| CONT-01 | Phase 8 | Complete |
+| CONT-02 | Phase 8 | Complete |
+| CONT-03 | Phase 8 | Complete |
 | I18N-01 | Phase 9 | Pending |
 
 **Coverage:**
@@ -73,4 +73,4 @@
 
 ---
 *Requirements defined: 2026-03-17*
-*Last updated: 2026-03-17 — ECO-01, ECO-02, ECO-03 completed in Phase 7 Plan 01*
+*Last updated: 2026-03-17 — CONT-01, CONT-02, CONT-03 completed in Phase 8 Plan 01*

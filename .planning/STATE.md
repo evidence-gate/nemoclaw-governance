@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: evidence-gate.dev Full Renewal
 status: executing
-stopped_at: Completed 07-01 — Ecosystem refresh + NemoClaw Quick Start section
-last_updated: "2026-03-17T12:00:00.000Z"
-last_activity: 2026-03-17 — Phase 7 Plan 01 complete (Ecosystem + Quick Start)
+stopped_at: Completed 08-01 — Hero, Pricing, SEO updated with NemoClaw governance
+last_updated: "2026-03-17T07:20:03Z"
+last_activity: 2026-03-17 — Phase 8 Plan 01 complete (Content, Pricing, SEO)
 progress:
   total_phases: 9
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 5
-  completed_plans: 4
-  percent: 56
+  completed_plans: 5
+  percent: 78
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-17)
 
 **Core value:** NemoClawのコスト制御欠如をagentgov予算強制で補完し、evidence-gate-actionでCI品質ゲートを追加する3層ガバナンス
-**Current focus:** Phase 8 — Content, Pricing, and SEO
+**Current focus:** Phase 9 — Japanese Sync (I18N)
 
 ## Current Position
 
-Phase: 7 of 9 (Ecosystem Section and Quick Start) — COMPLETE
+Phase: 8 of 9 (Content, Pricing, and SEO) — COMPLETE
 Plan: 1 of 1 (complete)
-Status: Phase 7 complete; Phases 5, 6, 7 all done; Phase 8 next
-Last activity: 2026-03-17 — Phase 7 Plan 01 complete (Ecosystem + Quick Start)
+Status: Phase 8 complete; Phases 5, 6, 7, 8 all done; Phase 9 next
+Last activity: 2026-03-17 — Phase 8 Plan 01 complete (Content, Pricing, SEO)
 
-Progress: [█████░░░░░] 56%
+Progress: [███████░░░] 78%
 
 ## Performance Metrics
 
@@ -52,6 +52,7 @@ Progress: [█████░░░░░] 56%
 | Phase 06-security-model-section P01 | 5min | 1 tasks | 1 files |
 | Phase 06-security-model-section P01 | 10min | 2 tasks | 1 files |
 | Phase 07-ecosystem-section-and-quick-start P01 | 12min | 3 tasks | 2 files |
+| Phase 08-content-pricing-and-seo P01 | 13min | 3 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,8 @@ Progress: [█████░░░░░] 56%
 - [Phase 07-ecosystem-section-and-quick-start]: NemoClaw Quick Start added as standalone top-level section (not subsection of existing Quick Start) per ECO-03 requirement
 - [Phase 07-ecosystem-section-and-quick-start]: README.md link corrected during visual verification — was pointing to unrelated third-party marketplace project
 - [Phase 07-ecosystem-section-and-quick-start]: Human visual verification of Ecosystem refresh and NemoClaw Quick Start section passed
+- [Phase 08-content-pricing-and-seo]: SEO descriptions keep '29 gate types' wording per plan — positions original 29 as base set with NemoClaw as additive
+- [Phase 08-content-pricing-and-seo]: Ecosystem tool card gate count updated 29->32 for consistency with Pricing table (Rule 1 auto-fix)
 
 ### Pending Todos
 
@@ -84,6 +87,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T12:00:00.000Z
-Stopped at: Completed 07-01 — Ecosystem refresh + NemoClaw Quick Start section
+Last session: 2026-03-17T07:20:03Z
+Stopped at: Completed 08-01 — Hero, Pricing, SEO updated with NemoClaw governance
 Resume file: None

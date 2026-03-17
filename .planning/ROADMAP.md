@@ -103,7 +103,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 08-01-PLAN.md — Hero copy + code example, Pricing table v2.0 features, SEO/OGP meta (CONT-01, CONT-02, CONT-03)
+- [x] 08-01-PLAN.md — Hero copy + code example, Pricing table v2.0 features, SEO/OGP meta (CONT-01, CONT-02, CONT-03)
 
 ### Phase 9: Japanese Sync (I18N)
 **Goal**: EN版（Phase 5-8）の全変更を/ja/index.htmlに忠実に同期し、JA訪問者がEN訪問者と同等の正確な技術情報を得られるようにする
@@ -131,5 +131,5 @@ Plans:
 | 5. Architecture Foundation | 2/2 | Complete    | 2026-03-17 | 2026-03-17 |
 | 6. Security Model Section | 1/1 | Complete    | 2026-03-17 | - |
 | 7. Ecosystem + Quick Start | v2.0 | 1/1 | Complete | 2026-03-17 |
-| 8. Content, Pricing, SEO | v2.0 | 0/1 | Planned | - |
+| 8. Content, Pricing, SEO | v2.0 | 1/1 | Complete | 2026-03-17 |
 | 9. Japanese Sync | v2.0 | 0/TBD | Not started | - |
