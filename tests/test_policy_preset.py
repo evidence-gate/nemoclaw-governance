@@ -1,32 +1,21 @@
 """Tests for NemoClaw policy presets.
 
 Validates that agentgov-proxy.yaml follows NemoClaw preset conventions
-and passes evidence-gate-action policy security checks.
+and passes security checks.
 """
 
 from __future__ import annotations
 
 import json
 import os
-import sys
 
 import pytest
 import yaml
 
-# Add evidence-gate-action src to path for imports
-EGA_SRC = os.path.join(
-    os.path.dirname(__file__),
-    "..",
-    "repos",
-    "evidence-gate-action",
-    "src",
-)
-sys.path.insert(0, os.path.abspath(EGA_SRC))
-
-from local_evaluator import _check_policy, _parse_yaml_or_json
-
+from nemoclaw_governance.validate import validate_blueprint, validate_file, validate_policy
 
 PRESET_DIR = os.path.join(os.path.dirname(__file__), "..", "nemoclaw-presets")
+EXAMPLE_DIR = os.path.join(os.path.dirname(__file__), "..", "examples")
 
 
 class TestAgentgovPresetStructure:
@@ -64,59 +53,57 @@ class TestAgentgovPresetStructure:
         for name, policy in preset_data["network_policies"].items():
             for ep in policy.get("endpoints", []):
                 if ep.get("port") == 443:
-                    assert ep.get("tls") == "terminate", (
-                        f"{name}: port 443 missing tls=terminate"
-                    )
+                    assert ep.get("tls") == "terminate", f"{name}: port 443 missing tls=terminate"
 
     def test_no_wildcard_methods(self, preset_data):
         for name, policy in preset_data["network_policies"].items():
             for ep in policy.get("endpoints", []):
                 for rule in ep.get("rules", []):
                     allow = rule.get("allow", {})
-                    assert allow.get("method") != "*", (
-                        f"{name}: wildcard method rule"
-                    )
+                    assert allow.get("method") != "*", f"{name}: wildcard method rule"
 
 
 class TestAgentgovPresetSecurity:
-    """Run evidence-gate-action policy security audit on preset."""
+    """Run policy security audit on preset."""
 
     def test_policy_gate_passes(self):
         """The agentgov preset passes the nemoclaw_policy gate."""
         path = os.path.join(PRESET_DIR, "agentgov-proxy.yaml")
         with open(path) as f:
             data = yaml.safe_load(f)
-
-        # Policy gate validates network_policies + version
-        # Add version since presets don't include it
         data["version"] = 1
-        issues = _check_policy(data)
-        assert issues == [], f"Policy audit failed: {issues}"
+        result = validate_policy(data)
+        assert result.passed, f"Policy audit failed: {result.issues}"
 
 
-class TestExampleBlueprintValidation:
-    """Validate example blueprint passes blueprint gate."""
+class TestExampleValidation:
+    """Validate example files pass their respective gates."""
 
     def test_example_blueprint_passes(self):
-        path = os.path.join(
-            os.path.dirname(__file__), "..", "examples", "blueprint-with-agentgov.yaml"
-        )
+        path = os.path.join(EXAMPLE_DIR, "blueprint-with-agentgov.yaml")
         with open(path) as f:
             data = yaml.safe_load(f)
-
-        from local_evaluator import _check_blueprint
-        issues = _check_blueprint(data)
-        assert issues == [], f"Blueprint validation failed: {issues}"
+        result = validate_blueprint(data)
+        assert result.passed, f"Blueprint validation failed: {result.issues}"
 
     def test_example_policy_passes(self):
-        path = os.path.join(
-            os.path.dirname(__file__), "..", "examples", "policy-with-agentgov.yaml"
-        )
+        path = os.path.join(EXAMPLE_DIR, "policy-with-agentgov.yaml")
         with open(path) as f:
             data = yaml.safe_load(f)
+        result = validate_policy(data)
+        assert result.passed, f"Policy validation failed: {result.issues}"
 
-        issues = _check_policy(data)
-        assert issues == [], f"Policy validation failed: {issues}"
+    def test_validate_file_auto_detects_blueprint(self):
+        path = os.path.join(EXAMPLE_DIR, "blueprint-with-agentgov.yaml")
+        result = validate_file(path)
+        assert result.passed
+        assert result.gate_type == "nemoclaw_blueprint"
+
+    def test_validate_file_auto_detects_policy(self):
+        path = os.path.join(EXAMPLE_DIR, "policy-with-agentgov.yaml")
+        result = validate_file(path)
+        assert result.passed
+        assert result.gate_type == "nemoclaw_policy"
 
 
 class TestInferenceProfileValid:

@@ -1,0 +1,60 @@
+[project]
+name = "nemoclaw-governance"
+version = "0.1.0"
+description = "Three-layer governance for AI agents: NemoClaw sandbox + agentgov cost control + evidence-gate-action CI gates"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+authors = [
+    { name = "AllNew LLC" },
+]
+readme = "README.md"
+keywords = ["nemoclaw", "agentgov", "evidence-gate", "ai-governance", "agent-sandbox"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Security",
+]
+
+[project.optional-dependencies]
+yaml = ["pyyaml>=6.0"]
+
+[project.scripts]
+nemoclaw-gov = "nemoclaw_governance.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/evidence-gate/nemoclaw-governance"
+Repository = "https://github.com/evidence-gate/nemoclaw-governance"
+Issues = "https://github.com/evidence-gate/nemoclaw-governance/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nemoclaw_governance"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0",
+    "pyyaml>=6.0",
+    "ruff>=0.9",
+]
