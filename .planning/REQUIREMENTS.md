@@ -18,9 +18,9 @@
 
 ### Ecosystem
 
-- [ ] **ECO-01**: 3層ダイアグラムをNemoClaw公式ドキュメントの正確な情報で刷新する
-- [ ] **ECO-02**: ツールカードの説明文をNemoClaw公式情報に基づいて更新する
-- [ ] **ECO-03**: evidence-gate-action + agentgov + NemoClaw統合のクイックスタートガイドを専用セクションとして追加する
+- [x] **ECO-01**: 3層ダイアグラムをNemoClaw公式ドキュメントの正確な情報で刷新する
+- [x] **ECO-02**: ツールカードの説明文をNemoClaw公式情報に基づいて更新する
+- [x] **ECO-03**: evidence-gate-action + agentgov + NemoClaw統合のクイックスタートガイドを専用セクションとして追加する
 
 ### Content
 
@@ -58,9 +58,9 @@
 | ARCH-03 | Phase 5 | Complete |
 | SEC-01 | Phase 6 | Complete |
 | SEC-02 | Phase 6 | Complete |
-| ECO-01 | Phase 7 | Pending |
-| ECO-02 | Phase 7 | Pending |
-| ECO-03 | Phase 7 | Pending |
+| ECO-01 | Phase 7 | Complete |
+| ECO-02 | Phase 7 | Complete |
+| ECO-03 | Phase 7 | Complete |
 | CONT-01 | Phase 8 | Pending |
 | CONT-02 | Phase 8 | Pending |
 | CONT-03 | Phase 8 | Pending |
@@ -73,4 +73,4 @@
 
 ---
 *Requirements defined: 2026-03-17*
-*Last updated: 2026-03-17 — ARCH-02, ARCH-03 completed in Phase 5 Plan 02*
+*Last updated: 2026-03-17 — ECO-01, ECO-02, ECO-03 completed in Phase 7 Plan 01*

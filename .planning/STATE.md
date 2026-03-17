@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: evidence-gate.dev Full Renewal
-status: verifying
-stopped_at: Completed 06-01 — all tasks done including human-verify checkpoint
-last_updated: "2026-03-17T05:51:31.185Z"
-last_activity: 2026-03-17 — Phase 5 Plan 02 complete (lifecycle + routing)
+status: executing
+stopped_at: Completed 07-01 — Ecosystem refresh + NemoClaw Quick Start section
+last_updated: "2026-03-17T12:00:00.000Z"
+last_activity: 2026-03-17 — Phase 7 Plan 01 complete (Ecosystem + Quick Start)
 progress:
   total_phases: 9
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 5
-  completed_plans: 3
-  percent: 11
+  completed_plans: 4
+  percent: 56
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-17)
 
 **Core value:** NemoClawのコスト制御欠如をagentgov予算強制で補完し、evidence-gate-actionでCI品質ゲートを追加する3層ガバナンス
-**Current focus:** Phase 5 — Architecture Diagrams and Technical Foundation
+**Current focus:** Phase 8 — Content, Pricing, and SEO
 
 ## Current Position
 
-Phase: 5 of 9 (Architecture Diagrams and Technical Foundation)
-Plan: 2 of 2 (complete — both plans done)
-Status: Phase 5 complete, awaiting human verify checkpoint for 05-02
-Last activity: 2026-03-17 — Phase 5 Plan 02 complete (lifecycle + routing)
+Phase: 7 of 9 (Ecosystem Section and Quick Start) — COMPLETE
+Plan: 1 of 1 (complete)
+Status: Phase 7 complete; Phases 5, 6, 7 all done; Phase 8 next
+Last activity: 2026-03-17 — Phase 7 Plan 01 complete (Ecosystem + Quick Start)
 
-Progress: [█░░░░░░░░░] 11%
+Progress: [█████░░░░░] 56%
 
 ## Performance Metrics
 
@@ -51,6 +51,7 @@ Progress: [█░░░░░░░░░] 11%
 | Phase 05-architecture-diagrams-and-technical-foundation P02 | 15min | 2 tasks | 1 files |
 | Phase 06-security-model-section P01 | 5min | 1 tasks | 1 files |
 | Phase 06-security-model-section P01 | 10min | 2 tasks | 1 files |
+| Phase 07-ecosystem-section-and-quick-start P01 | 12min | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -69,6 +70,9 @@ Progress: [█░░░░░░░░░] 11%
 - [Phase 06-security-model-section]: Security Guarantees placed as arch-subsection inside #nemoclaw-architecture (not standalone top-level section) — consistent with lifecycle and routing subsections
 - [Phase 06-security-model-section]: Security content framed from Evidence Gate visitor perspective: validates all four isolation layers before sandbox deployment
 - [Phase 06-security-model-section]: Human visual verification of Security Guarantees subsection passed — four isolation layer cards and constraint boxes render correctly
+- [Phase 07-ecosystem-section-and-quick-start]: NemoClaw Quick Start added as standalone top-level section (not subsection of existing Quick Start) per ECO-03 requirement
+- [Phase 07-ecosystem-section-and-quick-start]: README.md link corrected during visual verification — was pointing to unrelated third-party marketplace project
+- [Phase 07-ecosystem-section-and-quick-start]: Human visual verification of Ecosystem refresh and NemoClaw Quick Start section passed
 
 ### Pending Todos
 
@@ -80,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T05:35:40.020Z
-Stopped at: Completed 06-01 — all tasks done including human-verify checkpoint
+Last session: 2026-03-17T12:00:00.000Z
+Stopped at: Completed 07-01 — Ecosystem refresh + NemoClaw Quick Start section
 Resume file: None
