@@ -61,8 +61,8 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — SVG architecture diagram + section structure + nav link (ARCH-01)
-- [ ] 05-02-PLAN.md — Sandbox lifecycle + inference routing content (ARCH-02, ARCH-03)
+- [x] 05-01-PLAN.md — SVG architecture diagram + section structure + nav link (ARCH-01)
+- [x] 05-02-PLAN.md — Sandbox lifecycle + inference routing content (ARCH-02, ARCH-03)
 
 ### Phase 6: Security Model Section
 **Goal**: セキュリティ4層モデル（Landlock + seccomp + netns + 推論制御）とファイルシステム制限の具体的な技術詳細をEN版サイトに追加し、エンタープライズ採用者が信頼できるセキュリティ保証を確認できるようにする
@@ -128,7 +128,7 @@ Plans:
 | 2. agentgov Policy & Provider | v1.0 | 1/1 | Complete | 2026-03-17 |
 | 3. Integration Examples | v1.0 | 2/2 | Complete | 2026-03-17 |
 | 4. HITL Bridge | v1.0 | 1/1 | Complete | 2026-03-17 |
-| 5. Architecture Foundation | 1/2 | In Progress|  | - |
+| 5. Architecture Foundation | v2.0 | 2/2 | Complete | 2026-03-17 |
 | 6. Security Model Section | v2.0 | 0/TBD | Not started | - |
 | 7. Ecosystem + Quick Start | v2.0 | 0/TBD | Not started | - |
 | 8. Content, Pricing, SEO | v2.0 | 0/TBD | Not started | - |
