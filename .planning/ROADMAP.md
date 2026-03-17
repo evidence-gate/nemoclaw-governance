@@ -128,7 +128,7 @@ Plans:
 | 2. agentgov Policy & Provider | v1.0 | 1/1 | Complete | 2026-03-17 |
 | 3. Integration Examples | v1.0 | 2/2 | Complete | 2026-03-17 |
 | 4. HITL Bridge | v1.0 | 1/1 | Complete | 2026-03-17 |
-| 5. Architecture Foundation | v2.0 | 2/2 | Complete | 2026-03-17 |
+| 5. Architecture Foundation | 2/2 | Complete   | 2026-03-17 | 2026-03-17 |
 | 6. Security Model Section | v2.0 | 0/TBD | Not started | - |
 | 7. Ecosystem + Quick Start | v2.0 | 0/TBD | Not started | - |
 | 8. Content, Pricing, SEO | v2.0 | 0/TBD | Not started | - |

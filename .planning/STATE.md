@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: evidence-gate.dev Full Renewal
-status: planning
-stopped_at: Completed 05-02-PLAN.md
-last_updated: "2026-03-17T03:01:12Z"
-last_activity: 2026-03-17 — Phase 5 Plan 02 complete (lifecycle + routing content)
+status: verifying
+stopped_at: Completed 05-02-PLAN.md (feedback loop complete, human verification pending)
+last_updated: "2026-03-17T03:27:18.336Z"
+last_activity: 2026-03-17 — Phase 5 Plan 02 complete (lifecycle + routing)
 progress:
   total_phases: 9
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 2
   completed_plans: 2
   percent: 11
@@ -48,6 +48,7 @@ Progress: [█░░░░░░░░░] 11%
 *Updated after each plan completion*
 | Phase 05-architecture-diagrams-and-technical-foundation P01 | 3min | 2 tasks | 1 files |
 | Phase 05-architecture-diagrams-and-technical-foundation P02 | 2min | 1 task | 1 files |
+| Phase 05-architecture-diagrams-and-technical-foundation P02 | 15min | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -60,6 +61,9 @@ Progress: [█░░░░░░░░░] 11%
 - [Phase 05-01]: evidence-gate.github.io/ is a separate nested git repo; commits made inside that repo independently from workspace root
 - [Phase 05-02]: Stages 1-2 green (Plugin), 3-5 blue (Blueprint) — color coding matches SVG diagram responsibility boundaries
 - [Phase 05-02]: Used &#8250; character for lifecycle pipeline arrows — avoids SVG overhead for decorative separator
+- [Phase 05-02]: Renamed section heading to 'What Evidence Gate Protects' — frames NemoClaw architecture from visitor perspective rather than as standalone NemoClaw tutorial
+- [Phase 05-02]: Added .arch-narrative-bridge paragraph before diagram — connects CI gate context to NemoClaw runtime before technical details appear
+- [Phase 05-02]: Section headings and intros should always be written from Evidence Gate visitor perspective, not from subsystem (NemoClaw) perspective
 
 ### Pending Todos
 
@@ -71,6 +75,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T03:01:12Z
-Stopped at: Completed 05-02-PLAN.md (awaiting human-verify checkpoint)
+Last session: 2026-03-17T03:27:18.332Z
+Stopped at: Completed 05-02-PLAN.md (feedback loop complete, human verification pending)
 Resume file: None
