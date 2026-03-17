@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: evidence-gate.dev Full Renewal
 status: executing
-stopped_at: Completed 08-01 — Hero, Pricing, SEO updated with NemoClaw governance
-last_updated: "2026-03-17T07:20:03Z"
-last_activity: 2026-03-17 — Phase 8 Plan 01 complete (Content, Pricing, SEO)
+stopped_at: Completed 09-01 — JA CSS, meta/nav/hero, Architecture section synced
+last_updated: "2026-03-17T08:01:00Z"
+last_activity: 2026-03-17 — Phase 9 Plan 01 complete (JA Architecture Sync)
 progress:
   total_phases: 9
   completed_phases: 4
   total_plans: 5
-  completed_plans: 5
-  percent: 78
+  completed_plans: 6
+  percent: 89
 ---
 
 # Project State
@@ -25,12 +25,12 @@ See: .planning/PROJECT.md (updated 2026-03-17)
 
 ## Current Position
 
-Phase: 8 of 9 (Content, Pricing, and SEO) — COMPLETE
-Plan: 1 of 1 (complete)
-Status: Phase 8 complete; Phases 5, 6, 7, 8 all done; Phase 9 next
-Last activity: 2026-03-17 — Phase 8 Plan 01 complete (Content, Pricing, SEO)
+Phase: 9 of 9 (Japanese Sync I18N) — IN PROGRESS
+Plan: 1 of 2 (complete)
+Status: Phase 9 Plan 01 complete; Plan 02 remaining
+Last activity: 2026-03-17 — Phase 9 Plan 01 complete (JA Architecture Sync)
 
-Progress: [███████░░░] 78%
+Progress: [████████░░] 89%
 
 ## Performance Metrics
 
@@ -53,6 +53,7 @@ Progress: [███████░░░] 78%
 | Phase 06-security-model-section P01 | 10min | 2 tasks | 1 files |
 | Phase 07-ecosystem-section-and-quick-start P01 | 12min | 3 tasks | 2 files |
 | Phase 08-content-pricing-and-seo P01 | 13min | 3 tasks | 1 files |
+| Phase 09-japanese-sync-i18n P01 | 15min | 3 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -76,6 +77,10 @@ Progress: [███████░░░] 78%
 - [Phase 07-ecosystem-section-and-quick-start]: Human visual verification of Ecosystem refresh and NemoClaw Quick Start section passed
 - [Phase 08-content-pricing-and-seo]: SEO descriptions keep '29 gate types' wording per plan — positions original 29 as base set with NemoClaw as additive
 - [Phase 08-content-pricing-and-seo]: Ecosystem tool card gate count updated 29->32 for consistency with Pricing table (Rule 1 auto-fix)
+- [Phase 09-japanese-sync-i18n]: CSS copied verbatim from EN — language-neutral, must stay identical between EN and JA
+- [Phase 09-japanese-sync-i18n]: Technical terms kept in English in JA translations (NemoClaw, Plugin, Blueprint, Landlock, seccomp, etc.)
+- [Phase 09-japanese-sync-i18n]: Architecture section placed between AI Governance and Ecosystem matching EN structure
+- [Phase 09-japanese-sync-i18n]: Human visual verification passed for JA Architecture section sync
 
 ### Pending Todos
 
@@ -87,6 +92,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T07:20:03Z
-Stopped at: Completed 08-01 — Hero, Pricing, SEO updated with NemoClaw governance
+Last session: 2026-03-17T08:01:00Z
+Stopped at: Completed 09-01 — JA CSS, meta/nav/hero, Architecture section synced
 Resume file: None

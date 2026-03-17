@@ -116,7 +116,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 09-01-PLAN.md — CSS + meta/SEO + nav + hero + NemoClaw Architecture section with security subsection (I18N-01)
+- [x] 09-01-PLAN.md — CSS + meta/SEO + nav + hero + NemoClaw Architecture section with security subsection (I18N-01)
 - [ ] 09-02-PLAN.md — Ecosystem refresh + Pricing table update + NemoClaw Quick Start section (I18N-01)
 
 ## Progress
@@ -133,4 +133,4 @@ Plans:
 | 6. Security Model Section | 1/1 | Complete    | 2026-03-17 | - |
 | 7. Ecosystem + Quick Start | v2.0 | 1/1 | Complete | 2026-03-17 |
 | 8. Content, Pricing, SEO | v2.0 | 1/1 | Complete | 2026-03-17 |
-| 9. Japanese Sync | v2.0 | 0/2 | Not started | - |
+| 9. Japanese Sync | v2.0 | 1/2 | In progress | - |
