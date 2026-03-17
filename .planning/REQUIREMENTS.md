@@ -7,7 +7,7 @@
 
 ### Architecture
 
-- [ ] **ARCH-01**: NemoClaw Plugin+Blueprint構成を正確に表現した新アーキテクチャダイアグラム（SVG）をサイトに追加する
+- [x] **ARCH-01**: NemoClaw Plugin+Blueprint構成を正確に表現した新アーキテクチャダイアグラム（SVG）をサイトに追加する
 - [ ] **ARCH-02**: サンドボックスライフサイクル（Resolve→Verify→Plan→Apply→Status）の説明をサイトに掲載する
 - [ ] **ARCH-03**: 推論ルーティング3プロファイル（NVIDIA Cloud, Local NIM, Local vLLM）の説明をサイトに掲載する
 
@@ -53,7 +53,7 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ARCH-01 | Phase 5 | Pending |
+| ARCH-01 | Phase 5 | Complete |
 | ARCH-02 | Phase 5 | Pending |
 | ARCH-03 | Phase 5 | Pending |
 | SEC-01 | Phase 6 | Pending |
