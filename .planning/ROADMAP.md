@@ -72,10 +72,10 @@ Plans:
   1. Visitor can read a dedicated security section that names and explains all four isolation layers (Landlock LSM, seccomp, netns, inference control)
   2. Visitor can see the specific filesystem constraint (writes limited to /sandbox and /tmp only) stated explicitly
   3. Visitor can read that network policy is deny-by-default and understand what egress is permitted
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 06-01: TBD
+- [ ] 06-01-PLAN.md — Security guarantees subsection: 4 isolation layers + filesystem/network constraints (SEC-01, SEC-02)
 
 ### Phase 7: Ecosystem Section and Quick Start
 **Goal**: Ecosystemセクションをリニューアルし、正確なPlugin+Blueprint構成図と更新されたツールカード説明、および3ツール統合のコピー&ペーストで導入できるクイックスタートガイドを提供する
@@ -129,7 +129,7 @@ Plans:
 | 3. Integration Examples | v1.0 | 2/2 | Complete | 2026-03-17 |
 | 4. HITL Bridge | v1.0 | 1/1 | Complete | 2026-03-17 |
 | 5. Architecture Foundation | 2/2 | Complete    | 2026-03-17 | 2026-03-17 |
-| 6. Security Model Section | v2.0 | 0/TBD | Not started | - |
+| 6. Security Model Section | v2.0 | 0/1 | Planned | - |
 | 7. Ecosystem + Quick Start | v2.0 | 0/TBD | Not started | - |
 | 8. Content, Pricing, SEO | v2.0 | 0/1 | Planned | - |
 | 9. Japanese Sync | v2.0 | 0/TBD | Not started | - |
