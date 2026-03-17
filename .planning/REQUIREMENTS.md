@@ -13,8 +13,8 @@
 
 ### Security
 
-- [ ] **SEC-01**: セキュリティ4層モデル（Landlock LSM + seccomp + netns + 推論制御）の詳細セクションをサイトに追加する
-- [ ] **SEC-02**: ファイルシステム制限（/sandbox, /tmpのみ書込可）とネットワークポリシー（deny-by-default）を具体的に説明する
+- [x] **SEC-01**: セキュリティ4層モデル（Landlock LSM + seccomp + netns + 推論制御）の詳細セクションをサイトに追加する
+- [x] **SEC-02**: ファイルシステム制限（/sandbox, /tmpのみ書込可）とネットワークポリシー（deny-by-default）を具体的に説明する
 
 ### Ecosystem
 
@@ -56,8 +56,8 @@
 | ARCH-01 | Phase 5 | Complete |
 | ARCH-02 | Phase 5 | Complete |
 | ARCH-03 | Phase 5 | Complete |
-| SEC-01 | Phase 6 | Pending |
-| SEC-02 | Phase 6 | Pending |
+| SEC-01 | Phase 6 | Complete |
+| SEC-02 | Phase 6 | Complete |
 | ECO-01 | Phase 7 | Pending |
 | ECO-02 | Phase 7 | Pending |
 | ECO-03 | Phase 7 | Pending |
