@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: evidence-gate.dev Full Renewal
 status: verifying
-stopped_at: Completed 06-01 Task 1 — awaiting human verification checkpoint (Task 2)
-last_updated: "2026-03-17T05:07:12.960Z"
+stopped_at: Completed 06-01 — all tasks done including human-verify checkpoint
+last_updated: "2026-03-17T05:35:40.022Z"
 last_activity: 2026-03-17 — Phase 5 Plan 02 complete (lifecycle + routing)
 progress:
   total_phases: 9
@@ -50,6 +50,7 @@ Progress: [█░░░░░░░░░] 11%
 | Phase 05-architecture-diagrams-and-technical-foundation P02 | 2min | 1 task | 1 files |
 | Phase 05-architecture-diagrams-and-technical-foundation P02 | 15min | 2 tasks | 1 files |
 | Phase 06-security-model-section P01 | 5min | 1 tasks | 1 files |
+| Phase 06-security-model-section P01 | 10min | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -67,6 +68,7 @@ Progress: [█░░░░░░░░░] 11%
 - [Phase 05-02]: Section headings and intros should always be written from Evidence Gate visitor perspective, not from subsystem (NemoClaw) perspective
 - [Phase 06-security-model-section]: Security Guarantees placed as arch-subsection inside #nemoclaw-architecture (not standalone top-level section) — consistent with lifecycle and routing subsections
 - [Phase 06-security-model-section]: Security content framed from Evidence Gate visitor perspective: validates all four isolation layers before sandbox deployment
+- [Phase 06-security-model-section]: Human visual verification of Security Guarantees subsection passed — four isolation layer cards and constraint boxes render correctly
 
 ### Pending Todos
 
@@ -78,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T05:07:12.957Z
-Stopped at: Completed 06-01 Task 1 — awaiting human verification checkpoint (Task 2)
+Last session: 2026-03-17T05:35:40.020Z
+Stopped at: Completed 06-01 — all tasks done including human-verify checkpoint
 Resume file: None
