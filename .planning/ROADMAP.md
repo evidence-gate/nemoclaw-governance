@@ -86,10 +86,10 @@ Plans:
   2. Visitor can read tool card descriptions for NemoClaw, agentgov, and evidence-gate-action that match official positioning
   3. Visitor can follow a dedicated Quick Start section and set up the evidence-gate-action + agentgov + NemoClaw integration using only the instructions on the page
   4. The Quick Start section exists as its own named section, not buried in another section
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 07-01: TBD
+- [ ] 07-01-PLAN.md — Ecosystem diagram + tool card refresh, NemoClaw integration Quick Start with 3-tool workflow YAML (ECO-01, ECO-02, ECO-03)
 
 ### Phase 8: Content, Pricing, and SEO
 **Goal**: Heroセクション、Pricingテーブル、SEO/OGPメタデータをNemoClaw統合情報で更新し、新規訪問者がサイトから正確な製品概要を受け取れるようにする
@@ -130,6 +130,6 @@ Plans:
 | 4. HITL Bridge | v1.0 | 1/1 | Complete | 2026-03-17 |
 | 5. Architecture Foundation | 2/2 | Complete    | 2026-03-17 | 2026-03-17 |
 | 6. Security Model Section | v2.0 | 0/1 | Planned | - |
-| 7. Ecosystem + Quick Start | v2.0 | 0/TBD | Not started | - |
+| 7. Ecosystem + Quick Start | v2.0 | 0/1 | Planned | - |
 | 8. Content, Pricing, SEO | v2.0 | 0/1 | Planned | - |
 | 9. Japanese Sync | v2.0 | 0/TBD | Not started | - |
