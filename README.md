@@ -1,3 +1,5 @@
+**English** | [日本語](README.ja.md)
+
 # NemoClaw Governance Integration
 
 Three-layer governance for AI agents: infrastructure isolation (NemoClaw) + cost control (agentgov) + CI quality gates (evidence-gate-action).
