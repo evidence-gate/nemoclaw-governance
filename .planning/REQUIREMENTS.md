@@ -1,83 +1,76 @@
-# Requirements — NemoClaw Governance Integration v1.0
+# Requirements — evidence-gate.dev Full Renewal v2.0
 
-## evidence-gate-action NemoClaw Gates
+**Defined:** 2026-03-17
+**Core Value:** NemoClaw公式ドキュメントの正確なアーキテクチャ情報をevidence-gate.devに反映し、3層ガバナンスの技術的信頼性を向上させる
 
-### EGA-01: NemoClaw Blueprint Gate Type
-**What:** `nemoclaw_blueprint` gate type in `local_evaluator.py` that validates NemoClaw `blueprint.yaml` structure.
-**Acceptance:** Gate passes valid blueprint YAML (version, profiles, sandbox config). Gate fails on: missing required fields, invalid version constraints, missing credential_env, undefined profiles. Free mode (local evaluation, no API needed).
-**Priority:** Must
+## v2.0 Requirements
 
-### EGA-02: NemoClaw Policy Gate Type
-**What:** `nemoclaw_policy` gate type that validates OpenShell `openclaw-sandbox.yaml` security posture.
-**Acceptance:** Gate validates: all endpoints have TLS enforcement, no wildcard method rules on sensitive endpoints, binary scoping present, no overly-broad `access: full` entries. Produces actionable `suggested_actions` on failure.
-**Priority:** Must
+### Architecture
 
-### EGA-03: NemoClaw Baseline Preset
-**What:** `nemoclaw-baseline` preset in `presets.py` bundling NemoClaw-specific + standard gates.
-**Acceptance:** Preset includes: `nemoclaw_blueprint`, `nemoclaw_policy`, `security`, `build`. Usable via `gate_preset: nemoclaw-baseline` in GitHub Actions.
-**Priority:** Must
+- [ ] **ARCH-01**: NemoClaw Plugin+Blueprint構成を正確に表現した新アーキテクチャダイアグラム（SVG）をサイトに追加する
+- [ ] **ARCH-02**: サンドボックスライフサイクル（Resolve→Verify→Plan→Apply→Status）の説明をサイトに掲載する
+- [ ] **ARCH-03**: 推論ルーティング3プロファイル（NVIDIA Cloud, Local NIM, Local vLLM）の説明をサイトに掲載する
 
-### EGA-04: NemoClaw Recommendation Table
-**What:** Recommendation entries in `entrypoint.py` for NemoClaw gate failures.
-**Acceptance:** Covers: blueprint schema errors, policy security gaps, missing presets, version incompatibility. Priority-sorted, human-readable repair steps.
-**Priority:** Should
+### Security
 
-### EGA-05: NemoClaw Evidence Schema
-**What:** JSON Schema definitions for NemoClaw evidence files (blueprint validation results, policy audit results).
-**Acceptance:** Schema validates evidence structure. SHA-256 hashing via existing `build_evidence_ref()`. Compatible with L4 trust level.
-**Priority:** Should
+- [ ] **SEC-01**: セキュリティ4層モデル（Landlock LSM + seccomp + netns + 推論制御）の詳細セクションをサイトに追加する
+- [ ] **SEC-02**: ファイルシステム制限（/sandbox, /tmpのみ書込可）とネットワークポリシー（deny-by-default）を具体的に説明する
 
-## agentgov NemoClaw Integration
+### Ecosystem
 
-### AGV-01: NemoClaw Policy Preset
-**What:** `agentgov-proxy.yaml` policy preset file compatible with NemoClaw's `policies/presets/` format.
-**Acceptance:** Configures network_policies to allow sandbox egress to agentgov proxy (configurable host:port). TLS enforcement, proper binary scoping. Follows NemoClaw preset YAML schema exactly. Installable via `nemoclaw policy-add`.
-**Priority:** Must
+- [ ] **ECO-01**: 3層ダイアグラムをNemoClaw公式ドキュメントの正確な情報で刷新する
+- [ ] **ECO-02**: ツールカードの説明文をNemoClaw公式情報に基づいて更新する
+- [ ] **ECO-03**: evidence-gate-action + agentgov + NemoClaw統合のクイックスタートガイドを専用セクションとして追加する
 
-### AGV-02: agentgov Inference Provider Registration
-**What:** Documentation + helper script to register agentgov as NemoClaw inference provider.
-**Acceptance:** `openshell provider create --type openai-compatible --config <agentgov-url>` works. Agent inside sandbox transparently routes through agentgov. Budget enforcement confirmed via hold/settle. Supports all 3 LLM providers (OpenAI, Anthropic, Gemini via agentgov).
-**Priority:** Must
+### Content
 
-### AGV-03: NemoClaw Onboard Integration
-**What:** Integration with NemoClaw's `nemoclaw onboard` flow for agentgov setup.
-**Acceptance:** `nemoclaw onboard --endpoint custom --endpoint-url <agentgov-proxy>` configures both inference routing and network policy. Agent-id header injection documented.
-**Priority:** Should
+- [ ] **CONT-01**: Heroセクションのコピーとコード例をNemoClaw統合を反映して更新する
+- [ ] **CONT-02**: Pricing表を最新の機能セットで更新する
+- [ ] **CONT-03**: SEO meta description, OGPタグ, 構造化データをNemoClaw統合情報で更新する
 
-### AGV-04: Programmatic HITL Bridge
-**What:** Bridge between agentgov's webhook/Slack HITL and NemoClaw's TUI HITL for unified approval flow.
-**Acceptance:** Network-level blocks from OpenShell trigger agentgov HITL webhook. Approval/denial propagated back. Single approval queue for both network and inference governance.
-**Priority:** Could
+### i18n
 
-## Integration & Documentation
+- [ ] **I18N-01**: EN版の全変更を/ja/index.htmlに同期する
 
-### INT-01: Example NemoClaw Blueprint with agentgov
-**What:** Reference `blueprint.yaml` with agentgov as inference provider + corresponding policy.
-**Acceptance:** Complete working example: blueprint.yaml, openclaw-sandbox.yaml with agentgov preset, .env template. Copy-paste deployable.
-**Priority:** Must
+## Future Requirements
 
-### INT-02: GitHub Actions Workflow Example
-**What:** Example CI workflow using evidence-gate-action NemoClaw gates.
-**Acceptance:** `.github/workflows/nemoclaw-governance.yml` validates blueprint + policy before deployment. Uses `nemoclaw-baseline` preset. Includes sticky PR comment.
-**Priority:** Must
+### Extended Content
 
-### INT-03: Integration Test Suite
-**What:** Tests validating agentgov + evidence-gate-action + NemoClaw interoperability.
-**Acceptance:** Blueprint validation tests (valid/invalid YAML), policy validation tests (secure/insecure configs), preset installation tests. CI-runnable without NemoClaw runtime (static analysis only).
-**Priority:** Must
+- **EXT-01**: /nemoclaw/ 専用ランディングページ（NemoClaw統合の深い技術ガイド）
+- **EXT-02**: ブログ記事セクション（NemoClaw + evidence-gate統合のユースケース解説）
+- **EXT-03**: インタラクティブデモ（NemoClaw blueprint検証のライブ体験）
 
-### INT-04: Architecture Documentation
-**What:** Technical documentation of the 3-layer governance architecture.
-**Acceptance:** Explains: CI layer (evidence-gate-action) → Infrastructure layer (NemoClaw) → Application layer (agentgov). Includes architecture diagram, data flow, configuration reference. Published as README.md in this repo.
-**Priority:** Should
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| NemoClaw本体のコード変更 | 外部統合のみ、フォーク不要の設計 |
+| バックエンドAPI変更 | フロントエンドのみのリニューアル |
+| 新しいgate typeの追加 | v1.0で追加済み、このマイルストーンはサイトコンテンツのみ |
+| モバイルアプリ/PWA対応 | 静的サイトで十分 |
+
+## Traceability
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| ARCH-01 | TBD | Pending |
+| ARCH-02 | TBD | Pending |
+| ARCH-03 | TBD | Pending |
+| SEC-01 | TBD | Pending |
+| SEC-02 | TBD | Pending |
+| ECO-01 | TBD | Pending |
+| ECO-02 | TBD | Pending |
+| ECO-03 | TBD | Pending |
+| CONT-01 | TBD | Pending |
+| CONT-02 | TBD | Pending |
+| CONT-03 | TBD | Pending |
+| I18N-01 | TBD | Pending |
+
+**Coverage:**
+- v2.0 requirements: 12 total
+- Mapped to phases: 0
+- Unmapped: 12 ⚠️
 
 ---
-
-## Summary
-
-| Category | Must | Should | Could | Total |
-|----------|------|--------|-------|-------|
-| evidence-gate-action | 3 | 2 | 0 | 5 |
-| agentgov | 2 | 1 | 1 | 4 |
-| Integration | 3 | 1 | 0 | 4 |
-| **Total** | **8** | **4** | **1** | **13** |
+*Requirements defined: 2026-03-17*
+*Last updated: 2026-03-17 after initial definition*
