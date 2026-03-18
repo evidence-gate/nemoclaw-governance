@@ -97,38 +97,9 @@ openshell inference set --provider agentgov --model gpt-4o
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────┐
-│  CI/CD Layer (evidence-gate-action)              │
-│  Validates before deploy:                        │
-│  - Blueprint structure (nemoclaw_blueprint gate) │
-│  - Policy security (nemoclaw_policy gate)        │
-│  - nemoclaw-baseline preset (key static checks)  │
-└─────────┬───────────────────────────────────────┘
-          │ deploy
-          ▼
-┌─────────────────────────────────────────────────┐
-│  Infrastructure Layer (NemoClaw / OpenShell)     │
-│  Enforces at runtime:                            │
-│  - Filesystem isolation (Landlock LSM)           │
-│  - Network: deny-by-default, agentgov-only      │
-│  - Process sandboxing (no privilege escalation)  │
-└─────────┬───────────────────────────────────────┘
-          │ inference requests → agentgov proxy
-          ▼
-┌─────────────────────────────────────────────────┐
-│  Application Layer (agentgov proxy)              │
-│  Enforces per-request:                           │
-│  - Budget gate (Hold/Settle pattern)             │
-│  - HITL approval (Slack/webhook)                 │
-│  - Audit log (SHA-256 hash chain)                │
-└─────────┬───────────────────────────────────────┘
-          │ governed LLM call
-          ▼
-┌─────────────────────────────────────────────────┐
-│  LLM Provider (OpenAI / Anthropic / Gemini)      │
-└─────────────────────────────────────────────────┘
-```
+<p align="center">
+  <img src="docs/architecture.svg" alt="3-layer governance architecture diagram" width="800">
+</p>
 
 This design draws on the layered approach seen in Cisco and NVIDIA/OpenShell architectures: infrastructure isolation (Layer 1) + application governance (Layer 2) + CI validation (Layer 3).
 

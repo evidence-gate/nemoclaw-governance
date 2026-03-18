@@ -1,0 +1,79 @@
+<svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="NemoClaw Governance 3-layer architecture diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="480" rx="16" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="400" y="36" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="bold" fill="rgba(255,255,255,0.6)" text-anchor="middle" letter-spacing="0.1em">3-LAYER GOVERNANCE ARCHITECTURE</text>
+
+  <!-- Layer 1: CI/CD Layer -->
+  <rect x="20" y="56" width="760" height="92" rx="12" fill="rgba(34,197,94,0.12)" stroke="rgba(34,197,94,0.35)" stroke-width="1.5"/>
+  <text x="44" y="86" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold" fill="#22c55e">CI/CD Layer</text>
+  <text x="44" y="106" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="rgba(34,197,94,0.6)">Validates before deploy</text>
+  <text x="44" y="126" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">evidence-gate-action</text>
+  <rect x="185" y="66" width="180" height="72" rx="8" fill="white"/>
+  <text x="275" y="92" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Blueprint Validation</text>
+  <text x="275" y="108" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Structure, version,</text>
+  <text x="275" y="122" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">profiles, sandbox image</text>
+  <rect x="380" y="66" width="180" height="72" rx="8" fill="white"/>
+  <text x="470" y="92" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Policy Security</text>
+  <text x="470" y="108" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Enforcement mode, TLS,</text>
+  <text x="470" y="122" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">wildcards, filesystem</text>
+  <rect x="575" y="66" width="193" height="72" rx="8" fill="white"/>
+  <text x="671" y="92" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Preset Checks</text>
+  <text x="671" y="108" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">nemoclaw-baseline</text>
+  <text x="671" y="122" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Key static checks</text>
+
+  <!-- Arrow 1 -->
+  <text x="400" y="170" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="rgba(255,255,255,0.5)" text-anchor="middle">▼  deploy  ▼</text>
+
+  <!-- Layer 2: Infrastructure Layer -->
+  <rect x="20" y="186" width="760" height="92" rx="12" fill="rgba(37,99,235,0.12)" stroke="rgba(37,99,235,0.35)" stroke-width="1.5"/>
+  <text x="44" y="216" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold" fill="#60a5fa">Infrastructure</text>
+  <text x="44" y="236" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="rgba(96,165,250,0.6)">Enforces at runtime</text>
+  <text x="44" y="256" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">NemoClaw / OpenShell</text>
+  <rect x="185" y="196" width="180" height="72" rx="8" fill="white"/>
+  <text x="275" y="222" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Filesystem Isolation</text>
+  <text x="275" y="238" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Landlock LSM</text>
+  <text x="275" y="252" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Read-only enforcement</text>
+  <rect x="380" y="196" width="180" height="72" rx="8" fill="white"/>
+  <text x="470" y="222" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Network Control</text>
+  <text x="470" y="238" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Deny-by-default</text>
+  <text x="470" y="252" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">agentgov-only egress</text>
+  <rect x="575" y="196" width="193" height="72" rx="8" fill="white"/>
+  <text x="671" y="222" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Process Sandboxing</text>
+  <text x="671" y="238" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">seccomp filters</text>
+  <text x="671" y="252" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">No privilege escalation</text>
+
+  <!-- Arrow 2 -->
+  <text x="400" y="300" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="rgba(255,255,255,0.5)" text-anchor="middle">▼  inference requests → agentgov proxy  ▼</text>
+
+  <!-- Layer 3: Application Layer -->
+  <rect x="20" y="316" width="760" height="92" rx="12" fill="rgba(124,58,237,0.12)" stroke="rgba(124,58,237,0.35)" stroke-width="1.5"/>
+  <text x="44" y="346" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="bold" fill="#a78bfa">Application</text>
+  <text x="44" y="366" font-family="Arial,Helvetica,sans-serif" font-size="11" fill="rgba(167,139,250,0.6)">Enforces per-request</text>
+  <text x="44" y="386" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">agentgov proxy</text>
+  <rect x="185" y="326" width="180" height="72" rx="8" fill="white"/>
+  <text x="275" y="352" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Budget Gate</text>
+  <text x="275" y="368" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Hold / Settle pattern</text>
+  <text x="275" y="382" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Pre-authorize cost</text>
+  <rect x="380" y="326" width="180" height="72" rx="8" fill="white"/>
+  <text x="470" y="352" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">HITL Approval</text>
+  <text x="470" y="368" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Slack / webhook</text>
+  <text x="470" y="382" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Risk-graded actions</text>
+  <rect x="575" y="326" width="193" height="72" rx="8" fill="white"/>
+  <text x="671" y="352" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Audit Log</text>
+  <text x="671" y="368" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">SHA-256 hash chain</text>
+  <text x="671" y="382" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Tamper-evident</text>
+
+  <!-- Bottom: LLM Provider -->
+  <text x="400" y="430" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="rgba(255,255,255,0.5)" text-anchor="middle">▼  governed LLM call  ▼</text>
+  <rect x="200" y="444" width="400" height="28" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="400" y="464" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold" fill="rgba(255,255,255,0.6)" text-anchor="middle">LLM Provider — OpenAI / Anthropic / Gemini</text>
+</svg>
