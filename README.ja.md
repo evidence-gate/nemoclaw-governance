@@ -8,11 +8,11 @@ AIエージェントのための3層ガバナンス：インフラ分離（NemoC
 [![CI](https://github.com/evidence-gate/nemoclaw-governance/actions/workflows/ci.yml/badge.svg)](https://github.com/evidence-gate/nemoclaw-governance/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-## 課題
+## モチベーション
 
-NVIDIA NemoClaw は、ネットワーク・ファイルシステム・プロセスの分離によるサンドボックス実行環境をAIエージェントに提供します。しかし、**コスト制御機能がありません**。サンドボックス化されたエージェントでも、推論コストを止める手段がないまま数百ドルを消費する可能性があります。
+NVIDIA NemoClaw は、ネットワーク・ファイルシステム・プロセスの分離によるサンドボックス実行環境をAIエージェントに提供します。本プロジェクトが想定するデプロイ構成では、**サンドボックス分離に加えて、予算制御と設定検証を別レイヤーで補完すること**が有用です。
 
-本プロジェクトはこのギャップを埋めます：
+本プロジェクトは以下の補完レイヤーを提供します：
 
 - **agentgov** はサンドボックスとLLMプロバイダーの間に位置し、Hold/Settleパターンによるエージェントごとの予算制御を実現します
 - **evidence-gate-action** はデプロイ前にCIでNemoClaw blueprintとpolicyをバリデーションします
@@ -103,7 +103,7 @@ openshell inference set --provider agentgov --model gpt-4o
 │  デプロイ前にバリデーション:                        │
 │  - Blueprint構造 (nemoclaw_blueprint ゲート)      │
 │  - Policyセキュリティ (nemoclaw_policy ゲート)     │
-│  - nemoclaw-baseline プリセットで完全バリデーション  │
+│  - nemoclaw-baseline プリセット（主要な静的チェック） │
 └─────────┬───────────────────────────────────────┘
           │ デプロイ
           ▼
@@ -130,7 +130,7 @@ openshell inference set --provider agentgov --model gpt-4o
 └─────────────────────────────────────────────────┘
 ```
 
-これは Cisco + NVIDIA OpenShell が確立したエンタープライズ標準に準拠しています：インフラ分離（レイヤー1）＋アプリケーションガバナンス（レイヤー2）＋ CIバリデーション（レイヤー3）。
+この設計は、CiscoやNVIDIA/OpenShellのアーキテクチャに見られるレイヤード構成を参考にしています：インフラ分離（レイヤー1）＋アプリケーションガバナンス（レイヤー2）＋ CIバリデーション（レイヤー3）。
 
 ## 同梱内容
 
@@ -149,7 +149,7 @@ openshell inference set --provider agentgov --model gpt-4o
 |------------|------------------|
 | `nemoclaw_blueprint` | version（semver）、profiles（modelが必須）、sandbox（image）、バージョン制約 |
 | `nemoclaw_policy` | enforcement=enforce、ポート443でのTLS、ワイルドカードメソッド禁止、危険な書き込みパス禁止 |
-| `nemoclaw-baseline` プリセット | 上記すべて ＋ `security` ＋ `build` |
+| `nemoclaw-baseline` プリセット | 上記すべて ＋ `security` ＋ `build`（主要な静的チェック、網羅的ではない） |
 
 ### NemoClaw 用 Policy プリセット
 

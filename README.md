@@ -8,11 +8,11 @@ Three-layer governance for AI agents: infrastructure isolation (NemoClaw) + cost
 [![CI](https://github.com/evidence-gate/nemoclaw-governance/actions/workflows/ci.yml/badge.svg)](https://github.com/evidence-gate/nemoclaw-governance/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-## The Problem
+## Motivation
 
-NVIDIA NemoClaw provides sandboxed execution for AI agents with network, filesystem, and process isolation. But it has **no cost controls** -- a sandboxed agent can still burn through hundreds of dollars in inference costs with no way to stop it.
+NVIDIA NemoClaw provides sandboxed execution for AI agents with network, filesystem, and process isolation. In the deployment configurations this project targets, **a separate budget enforcement layer is useful** — sandbox isolation alone does not govern inference costs or validate configuration correctness before deployment.
 
-This project bridges the gap:
+This project adds complementary layers:
 
 - **agentgov** sits between the sandbox and the LLM provider, enforcing per-agent budgets with hold/settle cost control
 - **evidence-gate-action** validates NemoClaw blueprints and policies in CI before deployment
@@ -103,7 +103,7 @@ openshell inference set --provider agentgov --model gpt-4o
 │  Validates before deploy:                        │
 │  - Blueprint structure (nemoclaw_blueprint gate) │
 │  - Policy security (nemoclaw_policy gate)        │
-│  - nemoclaw-baseline preset for full validation  │
+│  - nemoclaw-baseline preset (key static checks)  │
 └─────────┬───────────────────────────────────────┘
           │ deploy
           ▼
@@ -130,7 +130,7 @@ openshell inference set --provider agentgov --model gpt-4o
 └─────────────────────────────────────────────────┘
 ```
 
-This follows the enterprise standard established by Cisco + NVIDIA OpenShell: infrastructure isolation (Layer 1) + application governance (Layer 2) + CI validation (Layer 3).
+This design draws on the layered approach seen in Cisco and NVIDIA/OpenShell architectures: infrastructure isolation (Layer 1) + application governance (Layer 2) + CI validation (Layer 3).
 
 ## What's Included
 
@@ -149,7 +149,7 @@ This follows the enterprise standard established by Cisco + NVIDIA OpenShell: in
 |-----------|-------------------|
 | `nemoclaw_blueprint` | version (semver), profiles (model required), sandbox (image), version constraints |
 | `nemoclaw_policy` | enforcement=enforce, TLS on port 443, no wildcard methods, no dangerous writable paths |
-| `nemoclaw-baseline` preset | All of the above + `security` + `build` |
+| `nemoclaw-baseline` preset | All of the above + `security` + `build` (key static checks, not exhaustive) |
 
 ### Policy Presets for NemoClaw
 
