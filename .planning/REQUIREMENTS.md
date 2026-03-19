@@ -30,7 +30,7 @@
 
 ### i18n
 
-- [ ] **I18N-01**: EN版の全変更を/ja/index.htmlに同期する
+- [x] **I18N-01**: EN版の全変更を/ja/index.htmlに同期する
 
 ## Future Requirements
 
@@ -64,7 +64,7 @@
 | CONT-01 | Phase 8 | Complete |
 | CONT-02 | Phase 8 | Complete |
 | CONT-03 | Phase 8 | Complete |
-| I18N-01 | Phase 9 | Pending |
+| I18N-01 | Phase 9 | Complete |
 
 **Coverage:**
 - v2.0 requirements: 12 total
@@ -73,4 +73,4 @@
 
 ---
 *Requirements defined: 2026-03-17*
-*Last updated: 2026-03-17 — CONT-01, CONT-02, CONT-03 completed in Phase 8 Plan 01*
+*Last updated: 2026-03-19 — I18N-01 completed in Phase 9 Plan 02*
